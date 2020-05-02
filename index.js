@@ -47,7 +47,11 @@ cli.command('remove <call>')
                 message: `'${call}' is already exist. do you want proceed?`,
                 default: false
             }
-        ])
+        ]).then(function(answer) {
+            if(answer.proceed) {
+                remove(call);
+            }
+        });
     }
 });
 
