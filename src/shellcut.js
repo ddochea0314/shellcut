@@ -4,6 +4,8 @@ const fs = require('fs');
 const __FILE_NAME = 'cmd.json';
 const __SAVE_PATH = path.join(__dirname, __FILE_NAME);
 
+exports.__SAVE_PATH = __SAVE_PATH;
+
 let shellcut = [
     {
         call: "call",
@@ -20,7 +22,7 @@ function createFileifNeed() {
 
 function exportCMD() {
     createFileifNeed();
-    JSON.parse(fs.readFileSync(__SAVE_PATH));
+    return JSON.parse(fs.readFileSync(__SAVE_PATH));
 }
 
 function importCMD(cmd, command) {

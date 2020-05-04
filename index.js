@@ -1,7 +1,6 @@
 const cli = require('commander');
 const inquirer = require('inquirer');
 const pkg = require('./package.json');
-const path = require('path');
 const {create, remove, list} = require('./src/shellcut');
 
 cli.version(pkg.version);
