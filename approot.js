@@ -1,0 +1,1 @@
+exports.__approot = __dirname;
