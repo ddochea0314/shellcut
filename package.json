@@ -1,6 +1,6 @@
 {
     "name": "shellcut",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "",
     "main": "index.js",
     "bin": "index.js",
@@ -12,7 +12,8 @@
     "license": "MIT",
     "dependencies": {
         "commander": "^5.1.0",
-        "inquirer": "^7.1.0"
+        "inquirer": "^7.1.0",
+        "lodash": "^4.17.15"
     },
     "devDependencies": {
         "@types/inquirer": "^6.5.0",

@@ -32,7 +32,8 @@ cli.command('list')
 .option('-c, --call <arg>', 'filter by call name.')
 .option('-o, -command <arg>', 'filter by original command.')
 .action(function() {
-    list(this.call, this.command);
+    const result = list(this.call, this.command);
+    console.log(result);
 });
 
 cli.command('remove <call>')
