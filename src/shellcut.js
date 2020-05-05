@@ -1,41 +1,53 @@
 const path = require('path');
 const fs = require('fs');
 
-const __FILE_NAME = 'cmd.json';
-const __SAVE_PATH = path.join(__dirname, __FILE_NAME);
+const __prefix = '$$';
+const __approot = path.resolve(__dirname, '..');
+exports.__prefix = () => __prefix;
 
-exports.__SAVE_PATH = __SAVE_PATH;
+// let shellcut = [
+//     {
+//         call: "call",
+//         command: "command",
+//         insertdate: Date.now()
+//     }
+// ];
 
-let shellcut = [
-    {
-        call: "call",
-        command: "command",
-        insertdate: Date.now()
+// function createFileifNeed() {
+//     if(fs.existsSync(__SAVE_PATH) !== false) {
+//         fs.writeFileSync(__SAVE_PATH, []);
+//     }
+// }
+
+// function exportCMD() {
+//     createFileifNeed();
+//     return JSON.parse(fs.readFileSync(__SAVE_PATH));
+// }
+
+// function importCMD(cmd, command) {
+//     createFileifNeed();
+// }
+
+function getfilename(call) {
+    let ext = "";
+    if(process.platform === 'win32') {
+        ext = '.cmd';
     }
-];
-
-function createFileifNeed() {
-    if(fs.existsSync(__SAVE_PATH) !== false) {
-        fs.writeFileSync(__SAVE_PATH, []);
+    else if(process.platform === 'linux') {
+        ext = '';
     }
+    return __prefix + call + ext;
 }
 
-function exportCMD() {
-    createFileifNeed();
-    return JSON.parse(fs.readFileSync(__SAVE_PATH));
-}
-
-function importCMD(cmd, command) {
-    createFileifNeed();
-}
-
+exports.getfilename = getfilename;
 /**
  * create new shellcut.
  * @param {string} call 
  * @param {string} command 
  */
 exports.create = function(call, command) {
-    
+    const filename = getfilename(call);
+    fs.writeFileSync(path.join(__approot, filename), command);
 }
 
 /**
@@ -43,7 +55,7 @@ exports.create = function(call, command) {
  * @param {string} call 
  */
 exports.remove = function(call) {
-
+    fs.unlinkSync(path.join(__approot, __prefix + call));
 }
 
 /**
