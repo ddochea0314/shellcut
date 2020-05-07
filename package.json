@@ -7,8 +7,8 @@
     "scripts": {
         "test": "jest"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": ["cli","nodejs","npm","util","tool"],
+    "author": "ddochea0314",
     "license": "MIT",
     "dependencies": {
         "commander": "^5.1.0",
