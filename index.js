@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const cli = require('commander');
 const inquirer = require('inquirer');
 const pkg = require('./package.json');
