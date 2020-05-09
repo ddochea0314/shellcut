@@ -3,7 +3,7 @@
 const cli = require('commander');
 const inquirer = require('inquirer');
 const pkg = require('./package.json');
-const {create, remove, list} = require('./src/shellcut');
+const {create, remove, list, isExist} = require('./src/shellcut');
 
 cli.version(pkg.version);
 
@@ -11,7 +11,7 @@ cli.command('create <call> <command>')
 .description("create command")
 .option('-f, --force', 'ignore already saved same call name.', false)
 .action(function(call, command) {
-    if(this.force !== true) {
+    if(this.force !== true && isExist(call)) {
         inquirer.prompt([
             {
                 type: 'confirm',

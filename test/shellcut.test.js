@@ -43,3 +43,12 @@ test('show list shellcut.', () => {
         shellcut.remove(call);
     });
 });
+
+test('check cmd file exist.', () => {
+    const call = 'exist';
+    const command = 'echo shellcut exist test';
+    expect(shellcut.isExist(call)).toBe(false);
+    shellcut.create(call, command);
+    expect(shellcut.isExist(call)).toBe(true);
+    shellcut.remove(call);
+});

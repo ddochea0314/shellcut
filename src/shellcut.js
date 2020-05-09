@@ -63,3 +63,11 @@ exports.list = function (call, command) {
     });
     return result;
 }
+
+/**
+ * check cmd file exist.
+ * @param {string} call
+ */
+exports.isExist = function(call) {
+    return fs.existsSync(path.join(__approot, getfilename(call)));
+}
