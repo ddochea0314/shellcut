@@ -8,8 +8,8 @@ npm install -g shellcut
 
 ## Quick start
 Create shellcut example.
-```
-shellcut create hw ehco hello shellcut!
+```cmd
+shellcut create hw "echo hello shellcut!"
 ```
 Type this.
 ```
