@@ -16,7 +16,7 @@ cli.command('create <call> <command...>') // <name> : require, [name] : option
             {
                 type: 'confirm',
                 name: 'proceed',
-                message: `'${call}' is already exist. do you want proceed?`,
+                message: `'${call}' is already exist. will be replaced. do you want proceed?`,
                 default: false
             }
         ]).then(function(answer) {
@@ -46,7 +46,7 @@ cli.command('remove <call>')
             {
                 type: 'confirm',
                 name: 'proceed',
-                message: `'${call}' is already exist. do you want proceed?`,
+                message: `This task cannot be undone. do you want proceed?`,
                 default: false
             }
         ]).then(function(answer) {
