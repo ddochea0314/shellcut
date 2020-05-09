@@ -15,3 +15,4 @@ Type this.
 ```
 __hw
 ```
+![result](./docs/img/use_shellcut.gif)
