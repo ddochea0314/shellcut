@@ -7,11 +7,23 @@
     "scripts": {
         "test": "jest"
     },
-    "keywords": ["cli","nodejs","npm","util","tool"],
-    "author": "ddochea0314",
+    "keywords": [
+        "cli",
+        "nodejs",
+        "npm",
+        "util",
+        "tool"
+    ],
+    "author": "ddochea0314 <ddochea@outlook.com>",
+    "homepage": "https://github.com/ddochea0314/shellcut",
+    "repository": {
+        "url": "https://github.com/ddochea0314/shellcut"
+    },
     "license": "MIT",
     "dependencies": {
         "commander": "^5.1.0",
+        "cross-spawn": "^7.0.2",
+        "get-installed-path": "^4.0.8",
         "inquirer": "^7.1.0",
         "lodash": "^4.17.15"
     },

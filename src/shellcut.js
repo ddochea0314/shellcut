@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { __approot, __prefix } = require('../define');
+const { __cmdpath, __prefix } = require('../define');
 
 // const __prefix = '__';
 // const __approot = path.resolve(__dirname, '..');
@@ -10,9 +10,9 @@ function getfilename(call) {
     if (process.platform === 'win32') {
         ext = '.cmd';
     }
-    else if (process.platform === 'linux') {
-        ext = '';
-    }
+    // else if (process.platform === 'linux') {
+    //     ext = '';
+    // }
     return __prefix + call + ext;
 }
 
@@ -20,12 +20,12 @@ exports.getfilename = getfilename;
 /**
  * create new shellcut.
  * @param {string} call 
- * @param {string} command 
+ * @param {string[]} command 
  * @returns {string} created shell file name.
  */
 exports.create = function (call, command) {
     const filename = getfilename(call);
-    fs.writeFileSync(path.join(__approot, filename), command);
+    fs.writeFileSync(path.join(__cmdpath, filename), command);
     return filename;
 }
 
@@ -35,7 +35,7 @@ exports.create = function (call, command) {
  */
 exports.remove = function (call) {
     const filename = getfilename(call);
-    fs.unlinkSync(path.join(__approot, filename));
+    fs.unlinkSync(path.join(__cmdpath, filename));
 }
 
 /**
@@ -45,7 +45,7 @@ exports.remove = function (call) {
  */
 exports.list = function (call, command) {
     let result = [];
-    fs.readdirSync(__approot).forEach((file) => {
+    fs.readdirSync(__cmdpath).forEach((file) => {
         const notvalue = [undefined, null];
         let isContainCall = notvalue.includes(call);
         let isContainCmd = notvalue.includes(command);
@@ -54,7 +54,7 @@ exports.list = function (call, command) {
                 isContainCall = file.includes(call);
             }
             if(!isContainCmd) {
-                isContainCmd = fs.readFileSync(path.join(__approot, file)).toString().includes(command);
+                isContainCmd = fs.readFileSync(path.join(__cmdpath, file)).toString().includes(command);
             }
             if(isContainCall && isContainCmd){
                 result.push(file);
@@ -69,5 +69,5 @@ exports.list = function (call, command) {
  * @param {string} call
  */
 exports.isExist = function(call) {
-    return fs.existsSync(path.join(__approot, getfilename(call)));
+    return fs.existsSync(path.join(__cmdpath, getfilename(call)));
 }

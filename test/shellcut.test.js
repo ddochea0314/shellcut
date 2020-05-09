@@ -2,15 +2,15 @@ const shellcut = require('../src/shellcut');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-const { __approot } = require('../define');
+const { __cmdpath } = require('../define');
 
 test('create and remove shellcut.', () => {
     const call = 'test';
     const command = 'echo shellcut test';
     const filename = shellcut.create(call, command);
-    expect(fs.existsSync(path.join(__approot, filename))).toBe(true);
+    expect(fs.existsSync(path.join(__cmdpath, filename))).toBe(true);
     shellcut.remove(call);
-    expect(fs.existsSync(path.join(__approot, filename))).toBe(false);
+    expect(fs.existsSync(path.join(__cmdpath, filename))).toBe(false);
 });
 
 test('show list shellcut.', () => {

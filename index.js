@@ -7,7 +7,7 @@ const {create, remove, list, isExist} = require('./src/shellcut');
 
 cli.version(pkg.version);
 
-cli.command('create <call> <command>')
+cli.command('create <call> <command...>') // <name> : require, [name] : option
 .description("create command")
 .option('-f, --force', 'ignore already saved same call name.', false)
 .action(function(call, command) {
