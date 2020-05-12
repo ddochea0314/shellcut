@@ -23,14 +23,13 @@
     "dependencies": {
         "commander": "^5.1.0",
         "cross-spawn": "^7.0.2",
-        "get-installed-path": "^4.0.8",
-        "inquirer": "^7.1.0",
-        "lodash": "^4.17.15"
+        "inquirer": "^7.1.0"
     },
     "devDependencies": {
         "@types/inquirer": "^6.5.0",
         "@types/jest": "^25.2.1",
         "@types/node": "^13.13.4",
-        "jest": "^25.5.4"
+        "jest": "^25.5.4",
+        "lodash": "^4.17.15"
     }
 }
