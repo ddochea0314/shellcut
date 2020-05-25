@@ -5,6 +5,10 @@ const { __cmdpath, __prefix } = require('../define');
 // const __prefix = '__';
 // const __approot = path.resolve(__dirname, '..');
 
+/**
+ * convert shellcut filename
+ * @param {string} call 
+ */
 function getfilename(call) {
     let ext = "";
     if (process.platform === 'win32') {
@@ -15,8 +19,23 @@ function getfilename(call) {
     // }
     return __prefix + call + ext;
 }
-
 exports.getfilename = getfilename;
+
+
+/**
+ * convert shellcut filename to call name
+ * @param {string} filename 
+ */
+function getcallname(filename) {
+    let ext = "";
+    if(process.platform === 'win32') {
+        ext = '.cmd';
+    }
+    return filename.replace(__prefix, '').replace(ext, '').trim();
+}
+
+exports.getcallname = getcallname;
+
 /**
  * create new shellcut.
  * @param {string} call 
@@ -35,7 +54,13 @@ exports.create = function (call, command) {
  */
 exports.remove = function (call) {
     const filename = getfilename(call);
-    fs.unlinkSync(path.join(__cmdpath, filename));
+    const cmdpath = path.join(__cmdpath, filename);
+    if(fs.existsSync(cmdpath)) {
+        fs.unlinkSync(path.join(__cmdpath, filename));
+    }
+    else {
+        console.log(call + ' is not existed.');
+    }
 }
 
 /**

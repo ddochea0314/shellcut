@@ -25,6 +25,8 @@ test('show list shellcut.', () => {
     });
     let result = shellcut.list();
     let target = [];
+    console.log(result);
+    console.log(filenames);
     expect(_.isEqual(_.xor(result, filenames), target)).toBe(true); // show all list
     
     result = shellcut.list('test').sort();
