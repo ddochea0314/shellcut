@@ -1,7 +1,7 @@
 {
     "name": "shellcut",
-    "version": "0.0.1",
-    "description": "",
+    "version": "0.0.2",
+    "description": "Create shortcut commands and easily call them when needed.",
     "main": "index.js",
     "bin": "index.js",
     "scripts": {
@@ -14,7 +14,7 @@
         "util",
         "tool"
     ],
-    "author": "ddochea0314 <ddochea@outlook.com>",
+    "author": "ddochea <ddochea@outlook.com>",
     "homepage": "https://github.com/ddochea0314/shellcut",
     "repository": {
         "url": "https://github.com/ddochea0314/shellcut"
