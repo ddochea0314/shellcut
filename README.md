@@ -35,16 +35,16 @@ shellcut list
 If you want to filtered by name, use option '--call' or '-c'.
 'word' is used to search by contains of shellcut name condition.
 ```cmd
-shellcut --call <word>
+shellcut list --call <word>
 ```
-If you want to filtered by original comand, use option '--command' or '-o'. 
+If you want to filtered by original comand, use option '--cmd' or '-o'. 
 'word' is used to search by contains of command condition.
 ```cmd
-shellcut --command <word>
+shellcut list --cmd <word>
 ```
 You can use both options.
 ```cmd
-shellcut --call <word1> --command <word2>
+shellcut list --call <word1> --cmd <word2>
 ```
 ### remove
 remove existed shellcut.
