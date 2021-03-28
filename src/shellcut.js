@@ -2,9 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const { __cmdpath, __prefix } = require('../define');
 
-// const __prefix = '__';
-// const __approot = path.resolve(__dirname, '..');
-
 /**
  * convert shellcut filename
  * @param {string} call 
@@ -87,6 +84,12 @@ exports.list = function (call, command) {
         }
     });
     return result;
+}
+
+exports.clear = function() {
+    fs.readdirSync(__cmdpath).forEach((file) => {
+        
+    });
 }
 
 /**

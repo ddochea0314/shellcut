@@ -1,11 +1,11 @@
 {
     "name": "shellcut",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Create shortcut commands and easily call them when needed.",
     "main": "index.js",
     "bin": "index.js",
     "scripts": {
-        "test": "jest"
+        "test": "cross-env NODE_ENV=development jest"
     },
     "keywords": [
         "cli",
@@ -29,6 +29,7 @@
         "@types/inquirer": "^6.5.0",
         "@types/jest": "^25.2.1",
         "@types/node": "^13.13.4",
+        "cross-env": "^7.0.3",
         "jest": "^25.5.4",
         "lodash": "^4.17.15"
     }
